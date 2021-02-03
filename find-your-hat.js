@@ -21,7 +21,6 @@ Controls:
   [s] Move south
   [d] Move east
   [Enter] Submit
-  [^C] Quit
 `
 console.log(controls)
 
@@ -57,11 +56,13 @@ let hasHat = false
 let playerPosX = playerPosY = 0
 
 while (!hasHat) {
+  // Re-render the map on each move
   console.clear()
   printMap(map, legend)
 
   const currentMove = prompt("Which way?: ")
   switch(currentMove) {
+    // Update player position
     case "w":
       playerPosX -= 1;
       break;
@@ -75,12 +76,14 @@ while (!hasHat) {
       playerPosY += 1;
       break;
     default:
+      // Show controls if invalid input
       console.log(controls);
       prompt("Press [Enter] to continue: ");
   }
 
   const charAtPlayerPos = map[playerPosX][playerPosY] || undefined
   if (!charAtPlayerPos) {
+    // Game end when player leaves map
     console.log(`
       *** GAME OVER ***
       ${ name } left the field to buy a new hat! : (
@@ -89,6 +92,7 @@ while (!hasHat) {
   } else {
     switch(charAtPlayerPos) {
       case hole:
+        // Game end when character at player position is hole
         console.log(`
           *** GAME OVER ***
           ${name} fell down a hole, never to be seen again!
@@ -97,6 +101,7 @@ while (!hasHat) {
         hasHat = -1
         break
       case hat:
+        // Game end when character at player position is hat
         console.log(`
           *** YOU FOUND YOUR HAT!!! ***
           Historians will tell of ${name}, the skilled orienteer!
@@ -104,6 +109,7 @@ while (!hasHat) {
         hasHat = true
         break
       default: 
+        // Update map with last move
         map[playerPosX][playerPosY] = path
     }
   }
