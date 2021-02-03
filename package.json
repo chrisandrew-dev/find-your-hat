@@ -1,0 +1,9 @@
+{
+    "name": "find-your-hat",
+    "description": "Silly CLI game",
+    "version": "0.0.1",
+    "dependencies": {
+        "node": "^15.7.0",
+        "prompt-sync": "^4.2.0"
+    }
+}
