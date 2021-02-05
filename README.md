@@ -5,7 +5,7 @@ Silly CLI game using Node and Prompt-Sync. This project was completed as part of
 
 <br />
 <p align="center">
-  <img src="https://github.com/chrisandrew-dev/find-your-hat/blob/main/demo.gif" width="75%" />
+  <img src="https://github.com/chrisandrew-dev/find-your-hat/blob/main/demo.gif" width="50%" />
 </p>
 
 ## Getting started
